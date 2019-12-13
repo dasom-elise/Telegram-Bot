@@ -1,4 +1,4 @@
-import requests
+import requests, html
 from flask import Flask, render_template, request
 from decouple import config
 import pprint,random
@@ -37,7 +37,7 @@ def telegram():
 
         }    
         response = requests.post(f'{google_url}?key={google_key}',data).json()
-        result = response['data']['translations'][0]['translatedText']
+        result = html.unescape(response['data']['translations'][0]['translatedText'])
 # 그 외의 경우엔 메아리
     else:
         result = '로또 혹은 /번역 이라고 입력해보세요!'
