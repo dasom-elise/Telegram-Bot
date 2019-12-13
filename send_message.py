@@ -2,6 +2,7 @@ import requests
 from decouple import config
 
 
+
 url = 'https://api.telegram.org'
 token = config('TELEGRAM_BOT_TOKEN')
 # 봇과 대화하는 사용자의 ChatId 추출
